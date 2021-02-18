@@ -15,6 +15,7 @@
       "duration": 190.364,
       "type": "depart",
       "instruction": "北方向です。",
+      "sound": "instruction_00.wav",
       "locations": [
         {
           "lat": 35.159304,
@@ -47,6 +48,7 @@
       "duration": 145.662,
       "type": "turn",
       "instruction": "右方向です。その先歩道です。",
+      "sound": "instruction_01.wav",
       "locations": [
         {
           "lat": 35.159894,
@@ -71,6 +73,7 @@
       "duration": 2.113,
       "type": "turn",
       "instruction": "左方向です。",
+      "sound": "instruction_02.wav",
       "locations": [
         {
           "lat": 35.161544,
@@ -83,6 +86,7 @@
       "duration": 62.155,
       "type": "turn",
       "instruction": "右方向です。",
+      "sound": "instruction_03.wav",
       "locations": [
         {
           "lat": 35.161534,
@@ -99,6 +103,7 @@
       "duration": 48.092,
       "type": "end of road",
       "instruction": "星ヶ丘西を右方向です。",
+      "sound": "instruction_04.wav",
       "locations": [
         {
           "lat": 35.162218,
@@ -115,6 +120,7 @@
       "duration": 0,
       "type": "arrive",
       "instruction": "目的地は右側です。",
+      "sound": "instruction_05.wav",
       "locations": [
         {
           "lat": 35.162476,

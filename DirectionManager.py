@@ -1,11 +1,15 @@
 from urllib.request import Request, urlopen
 import json
+from JTalk import JTalk
 
 # 出力ファイル(JSON)
 OUTPUT_JSON_FILE = "./json/route.json"
 
 # 出力ファイル(TEXT)
 OUTPUT_TEXT_FILE = "./text/instruction.txt"
+
+# 出力フォルダ(WAV)
+OUTPUT_WAV_DIR = "./wav/"
 
 # 椙山女学園大学
 start = {
@@ -33,7 +37,6 @@ response = urlopen(request)
 data = response.read()
 directions = json.loads(data)
 
-
 # Leg Object
 leg_distance = directions["routes"][0]["legs"][0]["distance"]
 leg_duration = directions["routes"][0]["legs"][0]["duration"]
@@ -43,12 +46,13 @@ steps = directions["routes"][0]["legs"][0]["steps"]
 
 # Step Object
 step_list = []
-for step in steps:
+for i, step in enumerate(steps):
     
     step_distance = step["distance"]
     step_duration = step["duration"]
     maneuver = step["maneuver"]        
-    intersections = step["intersections"]    
+    intersections = step["intersections"]
+    sound = "instruction_" + str(i).zfill(2) + ".wav"
     
     #print(f"step_distance={step_distance}")    
     #print(f"step_duration={step_duration}")
@@ -77,6 +81,7 @@ for step in steps:
         "duration": step_duration,
         "type": maneuver_type,
         "instruction": maneuver_instruction,
+        "sound": sound,
         "locations": location_list
     }
 
@@ -106,11 +111,21 @@ with open(OUTPUT_JSON_FILE, "w") as f:
 
 # TEXTを保存
 instruction_list = []
+sound_list = []
 for step in route_dict["steps"]:
     instruction = step["instruction"]
+    sound = step["sound"]
     instruction_list.append(instruction)
+    sound_list.append(sound)
 
 with open(OUTPUT_TEXT_FILE, "w") as f:
     for instruction in instruction_list:
         f.write(instruction + "\n")
     print(f"Save as {OUTPUT_TEXT_FILE}")        
+
+# WAVを保存
+jtalk = JTalk()
+for instruction, sound in zip(instruction_list, sound_list):
+    output_wav_file = OUTPUT_WAV_DIR + sound
+    jtalk.generate(instruction, output_wav_file)
+    print(f"Save as {output_wav_file}")
