@@ -1,8 +1,11 @@
 from urllib.request import Request, urlopen
 import json
 
-# 出力ファイル
-OUTPUT_PATH = "./json/route.json"
+# 出力ファイル(JSON)
+OUTPUT_JSON_FILE = "./json/route.json"
+
+# 出力ファイル(TEXT)
+OUTPUT_TEXT_FILE = "./text/instruction.txt"
 
 # 椙山女学園大学
 start = {
@@ -29,6 +32,7 @@ request = Request(url)
 response = urlopen(request)
 data = response.read()
 directions = json.loads(data)
+
 
 # Leg Object
 leg_distance = directions["routes"][0]["legs"][0]["distance"]
@@ -95,6 +99,18 @@ route_dict = {
 
 #print(json.dumps(route_dict, indent=2, ensure_ascii=False))
 
-with open(OUTPUT_PATH, "w") as f:
+# JSONを保存
+with open(OUTPUT_JSON_FILE, "w") as f:
     json.dump(route_dict, f, indent=2, ensure_ascii=False)
-    print(f"Save as {OUTPUT_PATH}")
+    print(f"Save as {OUTPUT_JSON_FILE}")
+
+# TEXTを保存
+instruction_list = []
+for step in route_dict["steps"]:
+    instruction = step["instruction"]
+    instruction_list.append(instruction)
+
+with open(OUTPUT_TEXT_FILE, "w") as f:
+    for instruction in instruction_list:
+        f.write(instruction + "\n")
+    print(f"Save as {OUTPUT_TEXT_FILE}")        
