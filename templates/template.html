@@ -58,7 +58,7 @@
   <body>
 
     <header>
-      <h1 class="m-2">WebEasyRouteMap</h1>
+      <h1 class="p-3">勾配ルートマップ</h1>
     </header>
     
     <main>
@@ -106,8 +106,14 @@
     <script>
 
       // JSON形式でデータを受け取る
-      let route = {{ route | tojson }}
+      let response = {{ response | tojson }}
+      response = JSON.parse(response);
+      
+      let route = response.route;
       console.log(route)
+
+      let audios = response["audios"];
+      //console.log(audios)
       
       // 椙山女学園大学
       let start = L.latLng(
@@ -152,11 +158,9 @@
 
       // 経路の表示
       let marker_group = L.layerGroup();
-      let audio_list = [];
       
       function updateRoute(route){
 
-	  audio_list = []
 	  start_marker.bindPopup(`<b>START</b> <br> lat: ${start.lat} <br> lng: ${start.lng}`)
 	  goal_marker.bindPopup(`<b>START</b> <br> lat: ${goal.lat} <br> lng: ${goal.lng}`)      
 	  
@@ -168,10 +172,6 @@
 	      let instruction = route.steps[i].instruction;
 	      let sound = route.steps[i].sound;	      	      
 	      let locations = route.steps[i].locations;
-
-	      audio = new Audio("static/sound/" + sound)
-	      audio.load();
-	      audio_list.push(audio)	      
 	      
 	      for(let j in locations){
 		  lat = locations[j].latitude;
@@ -185,20 +185,20 @@
 		  });
 
 		  if(j == 0){
-		      html = `<a class="audio" href="javascript:void(0)" index=${String(i)}>${instruction}</a> <br> lat: ${lat} <br> lng: ${lng} <br> elevation: ${elevation}`;
-		      circle.bindPopup(html, {
+		      popup = `<a class="audio" href="javascript:void(0)" index=${String(i)}>${instruction}</a>`;
+
+		      circle.bindPopup(popup, {
 			  autoClose: false,
-			  closeOnClick: false
-		      });
-		      circle.openPopup();
-		  }
-		  else{
-		      html = `lat: ${lat} <br> lng: ${lng} <br> elevation: ${elevation}`
-		      circle.bindPopup(html, {
-			  autoClose: true,
-			  closeOnClick: true
+			  closeOnClick: false,
+			  offset: L.point(0, -30)
 		      });
 		  }
+		      
+		  tooltip = `lat: ${lat} <br> lng: ${lng} <br> elevation: ${elevation}`;
+		  circle.bindTooltip(tooltip, {
+		      autoClose: false,
+		      closeOnClick: false
+		  });
 
 		  marker_group.addLayer(circle)
 	      }	      
@@ -260,7 +260,10 @@
 	      type: "POST",
 	      data: text_data,
 	      contentType: "application/json",
-	      success: function(route){
+	      success: function(response_data){
+		  response = JSON.parse(response_data)
+		  route = response["route"]
+		  audios = response["audios"]
 		  updateRoute(route)
 		  console.log(route);
 	      }
@@ -271,10 +274,13 @@
       // オーディオの再生
       $(document).on("click", ".audio", function(){
 	  let index = $(this).attr("index")	  
-	  console.log(`play ${index}`);	  
-	  audio_list[index].load();
-	  audio_list[index].play();
+	  console.log(`play ${index}`);
 
+	  audio_base64 = "data:audio/wav;base64," + audios[index];
+	  audio = new Audio(audio_base64);
+	  audio.load();
+	  audio.play();
+	  
       });
       
     </script>

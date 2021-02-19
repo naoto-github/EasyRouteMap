@@ -1,4 +1,5 @@
 import subprocess
+import base64
 
 class JTalk:
         
@@ -31,3 +32,24 @@ class JTalk:
             output_wav_file = output_path + sound
             self._generate(instruction, output_wav_file)
             print(f"Save as {output_wav_file}")        
+
+    @classmethod
+    def load(self, route, input_path):
+
+        sound_list = []
+        audio_list = []
+
+        for step in route["steps"]:
+            sound = step["sound"]
+            sound_list.append(sound)
+            
+        for sound in sound_list:
+            sound_file_path = input_path + sound
+            
+            with open(sound_file_path, "rb") as audio_file:
+                encode_text = base64.b64encode(audio_file.read())
+                audio_list.append(encode_text.decode("utf-8"))
+            
+            print(f"Load from {sound_file_path}")
+
+        return audio_list

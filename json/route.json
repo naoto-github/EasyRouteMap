@@ -1,85 +1,77 @@
 {
   "start": {
-    "latitude": 35.159196472497506,
-    "longitude": 137.0004836842418,
-    "elevation": 39.1
+    "latitude": 35.16059942636552,
+    "longitude": 137.00075348984686,
+    "elevation": 46.2
   },
   "goal": {
-    "latitude": 35.163514505286024,
-    "longitude": 136.9957712106407,
-    "elevation": 54.3
+    "latitude": 35.15823128787725,
+    "longitude": 136.99016275464604,
+    "elevation": 67.7
   },
-  "distance": 807.616,
-  "duration": 571.744,
+  "distance": 1232.489,
+  "duration": 875.95,
   "steps": [
     {
-      "distance": 98.058,
-      "duration": 69.055,
+      "distance": 58.489,
+      "duration": 41.19,
       "type": "depart",
-      "instruction": "名東本通/217/Meitou-Hon Dori Avenueを西方向です。",
+      "instruction": "西方向です。",
       "sound": "sound_00.wav",
       "locations": [
         {
-          "latitude": 35.15918,
-          "longitude": 137.000479,
-          "elevation": 39.1
+          "latitude": 35.160685,
+          "longitude": 137.00076,
+          "elevation": 46.8
         }
       ]
     },
     {
-      "distance": 72,
-      "duration": 53.704,
+      "distance": 39,
+      "duration": 27.465,
       "type": "turn",
-      "instruction": "名東本通4東を右方向です。",
+      "instruction": "左方向です。",
       "sound": "sound_01.wav",
       "locations": [
         {
-          "latitude": 35.159416,
-          "longitude": 136.999446,
-          "elevation": 41.9
-        },
-        {
-          "latitude": 35.159488,
-          "longitude": 136.999467,
-          "elevation": 42.1
+          "latitude": 35.160717,
+          "longitude": 137.000114,
+          "elevation": 44.3
         }
       ]
     },
     {
-      "distance": 168,
-      "duration": 118.31,
+      "distance": 693,
+      "duration": 493.028,
       "type": "turn",
-      "instruction": "左方向です。",
+      "instruction": "右方向です。",
       "sound": "sound_02.wav",
       "locations": [
         {
-          "latitude": 35.160048,
-          "longitude": 136.999625,
-          "elevation": 40.0
-        }
-      ]
-    },
-    {
-      "distance": 43,
-      "duration": 30.282,
-      "type": "turn",
-      "instruction": "右方向です。",
-      "sound": "sound_03.wav",
-      "locations": [
+          "latitude": 35.160393,
+          "longitude": 136.999947,
+          "elevation": 40.7
+        },
         {
-          "latitude": 35.160569,
-          "longitude": 136.997897,
-          "elevation": 43.1
-        }
-      ]
-    },
-    {
-      "distance": 140,
-      "duration": 98.592,
-      "type": "turn",
-      "instruction": "左方向です。",
-      "sound": "sound_04.wav",
-      "locations": [
+          "latitude": 35.160423,
+          "longitude": 136.999726,
+          "elevation": 41.4
+        },
+        {
+          "latitude": 35.160451,
+          "longitude": 136.999594,
+          "elevation": 41.8
+        },
+        {
+          "latitude": 35.160534,
+          "longitude": 136.999207,
+          "elevation": 42.1
+        },
+        {
+          "latitude": 35.160659,
+          "longitude": 136.998628,
+          "elevation": 43.4
+        },
         {
           "latitude": 35.160951,
           "longitude": 136.997967,
@@ -89,68 +81,93 @@
           "latitude": 35.161121,
           "longitude": 136.997452,
           "elevation": 44.4
-        }
-      ]
-    },
-    {
-      "distance": 33,
-      "duration": 23.239,
-      "type": "turn",
-      "instruction": "右方向です。",
-      "sound": "sound_05.wav",
-      "locations": [
+        },
         {
           "latitude": 35.16142,
           "longitude": 136.996547,
           "elevation": 45.4
+        },
+        {
+          "latitude": 35.161719,
+          "longitude": 136.99523,
+          "elevation": 47.2
+        },
+        {
+          "latitude": 35.161613,
+          "longitude": 136.994684,
+          "elevation": 48.0
+        },
+        {
+          "latitude": 35.16153,
+          "longitude": 136.994251,
+          "elevation": 48.5
+        },
+        {
+          "latitude": 35.161323,
+          "longitude": 136.9939,
+          "elevation": 49.0
+        },
+        {
+          "latitude": 35.161047,
+          "longitude": 136.993433,
+          "elevation": 51.5
         }
       ]
     },
     {
-      "distance": 66,
-      "duration": 46.479,
+      "distance": 125,
+      "duration": 90.028,
       "type": "turn",
-      "instruction": "左方向です。",
-      "sound": "sound_06.wav",
+      "instruction": "西山口東を右方向です。",
+      "sound": "sound_03.wav",
       "locations": [
         {
-          "latitude": 35.161696,
-          "longitude": 136.996678,
-          "elevation": 45.8
+          "latitude": 35.16072,
+          "longitude": 136.992997,
+          "elevation": 53.5
         },
         {
-          "latitude": 35.16188,
-          "longitude": 136.996043,
-          "elevation": 46.1
+          "latitude": 35.160644,
+          "longitude": 136.993002,
+          "elevation": 53.5
         }
       ]
     },
     {
-      "distance": 187.558,
-      "duration": 132.083,
+      "distance": 104,
+      "duration": 74.239,
       "type": "turn",
-      "instruction": "右方向です。",
-      "sound": "sound_07.wav",
+      "instruction": "西山口を左方向です。",
+      "sound": "sound_04.wav",
       "locations": [
         {
-          "latitude": 35.161865,
-          "longitude": 136.995989,
-          "elevation": 46.2
+          "latitude": 35.160622,
+          "longitude": 136.991713,
+          "elevation": 56.8
         },
         {
-          "latitude": 35.162305,
-          "longitude": 136.995907,
-          "elevation": 48.3
+          "latitude": 35.160055,
+          "longitude": 136.991709,
+          "elevation": 57.3
+        }
+      ]
+    },
+    {
+      "distance": 213,
+      "duration": 150,
+      "type": "fork",
+      "instruction": "分岐を右方向です。",
+      "sound": "sound_05.wav",
+      "locations": [
+        {
+          "latitude": 35.159684,
+          "longitude": 136.991718,
+          "elevation": 58.3
         },
         {
-          "latitude": 35.16269,
-          "longitude": 136.995826,
-          "elevation": 50.6
-        },
-        {
-          "latitude": 35.163025,
-          "longitude": 136.995739,
-          "elevation": 52.1
+          "latitude": 35.158674,
+          "longitude": 136.990756,
+          "elevation": 66.5
         }
       ]
     },
@@ -159,12 +176,12 @@
       "duration": 0,
       "type": "arrive",
       "instruction": "目的地に到着しました。",
-      "sound": "sound_08.wav",
+      "sound": "sound_06.wav",
       "locations": [
         {
-          "latitude": 35.163515,
-          "longitude": 136.995758,
-          "elevation": 54.3
+          "latitude": 35.158243,
+          "longitude": 136.990206,
+          "elevation": 67.6
         }
       ]
     }

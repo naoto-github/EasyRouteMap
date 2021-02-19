@@ -6,19 +6,25 @@ from JTalk import JTalk
 JSON_FILE = "json/route.json"
 WAV_DIR = "static/sound/"
 
-route = None
+with open(JSON_FILE, "r") as f:
+    route = json.load(f)
+    RouteManager.save(route, JSON_FILE)    
+    JTalk.save(route, WAV_DIR)    
+    audios = JTalk.load(route, WAV_DIR)
 
+    response = {
+        "route": route,
+        "audios": audios
+    }
+    
+    response_data = json.dumps(response)
+    
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-
-    with open(JSON_FILE, "r") as f:
-        route = json.load(f)
-        RouteManager.save(route, JSON_FILE)    
-        JTalk.save(route, WAV_DIR)    
         
-    template = render_template("template.html", route=route)
+    template = render_template("template.html", response=response_data)
 
     return template
 
@@ -52,8 +58,16 @@ def post():
             route = RouteManager.request(start, goal)
             RouteManager.save(route, JSON_FILE)
             JTalk.save(route, WAV_DIR)
+            audios = JTalk.load(route, WAV_DIR)
 
-            return route
+            response = {
+                "route": route,
+                "audios": audios
+            }
+
+            response_data = json.dumps(response)
+            
+            return response_data
 
 @app.after_request
 def add_header(r):
