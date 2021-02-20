@@ -1,6 +1,7 @@
 from urllib.request import Request, urlopen
 import json
 from ElevationManager import ElevationManager
+import math
 
 class RouteManager:
 
@@ -110,7 +111,49 @@ class RouteManager:
         return route
 
     @classmethod
+    def addSlopeInstruction(self, route):
+
+        for i in range(len(route["steps"]) - 1):
+
+            step = route["steps"][i]
+            step_next = route["steps"][i+1]
+            
+            distance = step["distance"]
+            instruction = step["instruction"]
+            elevation = step["locations"][0]["elevation"]
+            elevation_next = step_next["locations"][0]["elevation"]
+
+            slope = (elevation_next - elevation) / distance
+            rad = math.atan(slope)
+            degree = math.degrees(rad)
+
+            message = ""
+            if degree > 4:
+                message = "急な上り坂です。"
+            elif degree > 2 and degree <= 4:
+                message = "上り坂です。"
+            elif degree > 1 and degree <= 2:
+                message = "緩い上り坂です。"
+            elif degree < -1 and degree >= -2:
+                message = "緩い下り坂です。"
+            elif degree < -2 and degree >= -4:
+                message = "下り坂です。"
+            elif degree < -4:
+                message = "急な下り坂です。"
+
+            instruction += message
+            step["instruction"] = instruction            
+                            
+            #print(f"{instruction} {slope} {degree}")
+
+        return route
+    
+    @classmethod
     def save(self, route, path):
         with open(path, "w") as f:
             json.dump(route, f, indent=2, ensure_ascii=False)
             print(f"Save as {path}")
+
+
+
+            

@@ -56,6 +56,7 @@ def post():
         with open(JSON_FILE, "r") as f:
             
             route = RouteManager.request(start, goal)
+            route = RouteManager.addSlopeInstruction(route)            
             RouteManager.save(route, JSON_FILE)
             JTalk.save(route, WAV_DIR)
             audios = JTalk.load(route, WAV_DIR)

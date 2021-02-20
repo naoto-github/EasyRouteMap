@@ -27,9 +27,11 @@ goal = {
 # Mapbox APIで経路取得
 route = RouteManager.request(start, goal)
 
+# 勾配情報で更新
+route = RouteManager.addSlopeInstruction(route)
+
 # JSONを保存
 RouteManager.save(route, OUTPUT_JSON_FILE)
-print(f"Save as {OUTPUT_JSON_FILE}")
 
 # WAVを保存
 JTalk.save(route, OUTPUT_WAV_DIR)
