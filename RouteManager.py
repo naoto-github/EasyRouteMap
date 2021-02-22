@@ -2,6 +2,7 @@ from urllib.request import Request, urlopen
 import json
 from ElevationManager import ElevationManager
 import math
+import os
 
 class RouteManager:
 
@@ -9,8 +10,19 @@ class RouteManager:
     @classmethod
     def request(self, start, goal):
 
+        SECRET_FILE = "secret.json"
+        
+        if os.path.exists(SECRET_FILE):
+            f = open(SECRET_FILE)
+            secret = json.load(f)
+        else:
+            # Mapboxのアクセス・トークン
+            secret = {
+                "access_token": "xxxxx"
+            }
+        
         base_url = "https://api.mapbox.com/directions/v5/mapbox/walking/"
-        access_token = "pk.eyJ1IjoibmFvdG8tbWFwYm94IiwiYSI6ImNrZHkybTg2NDJzM2EydG9kMGQ1ZGhsbmUifQ.e0EC_EqmUkQgUG_JWBwT_g"
+        access_token = secret["access_token"]
         steps = "true"
         language = "ja"
         

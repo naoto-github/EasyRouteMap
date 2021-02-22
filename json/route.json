@@ -1,56 +1,75 @@
 {
   "start": {
-    "latitude": 35.160012755888744,
-    "longitude": 136.99249505996707,
-    "elevation": 58.6
+    "latitude": 35.16193586522443,
+    "longitude": 136.9916394772008,
+    "elevation": 65.3
   },
   "goal": {
-    "latitude": 35.16112538460224,
-    "longitude": 136.9819486141205,
-    "elevation": 50.8
+    "latitude": 35.15986445154487,
+    "longitude": 136.98547437787056,
+    "elevation": 65.6
   },
-  "distance": 1135.454,
-  "duration": 800.616,
+  "distance": 925.438,
+  "duration": 654.717,
   "steps": [
     {
-      "distance": 71.304,
-      "duration": 50.214,
+      "distance": 7.502,
+      "duration": 5.283,
       "type": "depart",
-      "instruction": "西方向です。",
+      "instruction": "西方向です。下り坂です。",
       "sound": "sound_00.wav",
       "locations": [
         {
-          "latitude": 35.16008,
-          "longitude": 136.992492,
-          "elevation": 58.1
+          "latitude": 35.161963,
+          "longitude": 136.991631,
+          "elevation": 65.4
         }
       ]
     },
     {
-      "distance": 63,
-      "duration": 44.366,
+      "distance": 143,
+      "duration": 100.704,
       "type": "turn",
-      "instruction": "右方向です。その先西山本通です。",
+      "instruction": "左方向です。下り坂です。",
       "sound": "sound_01.wav",
       "locations": [
         {
-          "latitude": 35.160055,
-          "longitude": 136.991709,
-          "elevation": 57.3
+          "latitude": 35.161945,
+          "longitude": 136.991551,
+          "elevation": 64.9
         }
       ]
     },
     {
-      "distance": 591,
-      "duration": 417.197,
+      "distance": 166,
+      "duration": 116.901,
       "type": "turn",
-      "instruction": "西山口を左方向です。",
+      "instruction": "西山口を右方向です。緩い上り坂です。",
       "sound": "sound_02.wav",
       "locations": [
         {
-          "latitude": 35.160622,
-          "longitude": 136.991713,
+          "latitude": 35.160686,
+          "longitude": 136.991717,
           "elevation": 56.8
+        },
+        {
+          "latitude": 35.160799,
+          "longitude": 136.990442,
+          "elevation": 60.3
+        }
+      ]
+    },
+    {
+      "distance": 221,
+      "duration": 157.634,
+      "type": "turn",
+      "instruction": "名東本通2を左方向です。上り坂です。",
+      "sound": "sound_03.wav",
+      "locations": [
+        {
+          "latitude": 35.160911,
+          "longitude": 136.989918,
+          "elevation": 61.7
         },
         {
           "latitude": 35.160862,
@@ -58,67 +77,72 @@
           "elevation": 61.8
         },
         {
-          "latitude": 35.161475,
-          "longitude": 136.987931,
-          "elevation": 65.0
+          "latitude": 35.160164,
+          "longitude": 136.989565,
+          "elevation": 66.0
         },
         {
-          "latitude": 35.162002,
-          "longitude": 136.987406,
-          "elevation": 63.3
-        },
-        {
-          "latitude": 35.162604,
-          "longitude": 136.985991,
-          "elevation": 57.2
+          "latitude": 35.159733,
+          "longitude": 136.98937,
+          "elevation": 69.5
         }
       ]
     },
     {
-      "distance": 402,
-      "duration": 283.099,
+      "distance": 141,
+      "duration": 99.296,
       "type": "turn",
-      "instruction": "星ヶ丘を左方向です。",
-      "sound": "sound_03.wav",
-      "locations": [
-        {
-          "latitude": 35.162637,
-          "longitude": 136.985933,
-          "elevation": 57.1
-        },
-        {
-          "latitude": 35.162109,
-          "longitude": 136.984567,
-          "elevation": 53.9
-        },
-        {
-          "latitude": 35.162099,
-          "longitude": 136.98454,
-          "elevation": 53.9
-        },
-        {
-          "latitude": 35.162087,
-          "longitude": 136.984508,
-          "elevation": 53.8
-        },
-        {
-          "latitude": 35.161421,
-          "longitude": 136.982789,
-          "elevation": 51.7
-        }
-      ]
-    },
-    {
-      "distance": 8.15,
-      "duration": 5.739,
-      "type": "turn",
-      "instruction": "左方向です。",
+      "instruction": "右方向です。緩い上り坂です。",
       "sound": "sound_04.wav",
       "locations": [
         {
-          "latitude": 35.161197,
-          "longitude": 136.981899,
-          "elevation": 50.7
+          "latitude": 35.159022,
+          "longitude": 136.989347,
+          "elevation": 76.3
+        },
+        {
+          "latitude": 35.159388,
+          "longitude": 136.98852,
+          "elevation": 80.2
+        }
+      ]
+    },
+    {
+      "distance": 246.937,
+      "duration": 174.899,
+      "type": "fork",
+      "instruction": "分岐を左方向です。下り坂です。",
+      "sound": "sound_05.wav",
+      "locations": [
+        {
+          "latitude": 35.159622,
+          "longitude": 136.98799,
+          "elevation": 80.3
+        },
+        {
+          "latitude": 35.160108,
+          "longitude": 136.986639,
+          "elevation": 71.7
+        },
+        {
+          "latitude": 35.159955,
+          "longitude": 136.986089,
+          "elevation": 67.6
+        },
+        {
+          "latitude": 35.159894,
+          "longitude": 136.985876,
+          "elevation": 66.7
+        },
+        {
+          "latitude": 35.159878,
+          "longitude": 136.98582,
+          "elevation": 66.6
+        },
+        {
+          "latitude": 35.159872,
+          "longitude": 136.985747,
+          "elevation": 66.5
         }
       ]
     },
@@ -127,12 +151,12 @@
       "duration": 0,
       "type": "arrive",
       "instruction": "目的地に到着しました。",
-      "sound": "sound_05.wav",
+      "sound": "sound_06.wav",
       "locations": [
         {
-          "latitude": 35.161121,
-          "longitude": 136.981915,
-          "elevation": 50.7
+          "latitude": 35.159849,
+          "longitude": 136.985474,
+          "elevation": 65.6
         }
       ]
     }
