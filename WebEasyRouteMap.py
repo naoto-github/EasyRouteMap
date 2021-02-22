@@ -79,5 +79,9 @@ def add_header(r):
     return r
         
 if __name__ == "__main__":
+    # デバッグ
     app.run(debug=True)
+
+    # ウェブ公開
+    #app.run(debug=False, host="0.0.0.0", port=80)
     
